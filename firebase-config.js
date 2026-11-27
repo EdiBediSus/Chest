@@ -1,4 +1,3 @@
-// Configurația proiectului Firebase FoodQR-Survey (chest-3cad1)
 export const firebaseConfig = {
   apiKey: "AIzaSyAcLE7ivNPwUe01VyvghQiNoWjdIc3qFlQ",
   authDomain: "chest-3cad1.firebaseapp.com",
