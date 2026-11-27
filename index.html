@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#176b45">
+  <title>FoodQR – Chestionar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="top">
+      <div class="logo">Food<span>QR</span></div>
+      <p>Chestionar de opinie</p>
+    </header>
+
+    <section id="surveyView" class="panel">
+      <div class="intro">
+        <span class="eyebrow">AJUTĂ-NE SĂ ÎMBUNĂTĂȚIM APLICAȚIA</span>
+        <h1>Spune-ne părerea ta!</h1>
+        <p>Completează acest chestionar. Durează aproximativ 2 minute și nu ai nevoie de cont.</p>
+      </div>
+      <form id="surveyForm">
+        <div class="field">
+          <label for="age">1. În ce categorie de vârstă te încadrezi?</label>
+          <select id="age" required>
+            <option value="">Alege o variantă</option>
+            <option>Sub 18 ani</option><option>18–30 ani</option>
+            <option>31–50 ani</option><option>Peste 50 ani</option>
+          </select>
+        </div>
+        <fieldset class="field">
+          <legend>2. Citești de obicei etichetele produselor alimentare?</legend>
+          <label class="choice"><input type="radio" name="q1" value="Da" required> Da</label>
+          <label class="choice"><input type="radio" name="q1" value="Uneori"> Uneori</label>
+          <label class="choice"><input type="radio" name="q1" value="Nu"> Nu</label>
+        </fieldset>
+        <fieldset class="field">
+          <legend>3. Ce informații verifici cel mai des? (poți alege mai multe)</legend>
+          <label class="choice"><input type="checkbox" name="q2" value="Ingredientele"> Ingredientele</label>
+          <label class="choice"><input type="checkbox" name="q2" value="Valorile nutriționale"> Valorile nutriționale</label>
+          <label class="choice"><input type="checkbox" name="q2" value="Alergenii"> Alergenii</label>
+          <label class="choice"><input type="checkbox" name="q2" value="Originea produsului"> Originea produsului</label>
+          <label class="choice"><input type="checkbox" name="q2" value="Nu verific"> Nu verific</label>
+        </fieldset>
+        <fieldset class="field">
+          <legend>4. Cât de ușor îți este să înțelegi informațiile de pe etichete?</legend>
+          <label class="choice"><input type="radio" name="q3" value="Foarte ușor" required> Foarte ușor</label>
+          <label class="choice"><input type="radio" name="q3" value="Destul de ușor"> Destul de ușor</label>
+          <label class="choice"><input type="radio" name="q3" value="Destul de greu"> Destul de greu</label>
+          <label class="choice"><input type="radio" name="q3" value="Foarte greu"> Foarte greu</label>
+        </fieldset>
+        <fieldset class="field">
+          <legend>5. Ți-ar fi utilă o aplicație care îți explică rapid informațiile unui produs prin scanarea codului QR?</legend>
+          <label class="choice"><input type="radio" name="q4" value="Da" required> Da</label>
+          <label class="choice"><input type="radio" name="q4" value="Poate"> Poate</label>
+          <label class="choice"><input type="radio" name="q4" value="Nu"> Nu</label>
+        </fieldset>
+        <fieldset class="field">
+          <legend>6. Cât de des ai folosi o astfel de aplicație?</legend>
+          <label class="choice"><input type="radio" name="q5" value="Zilnic" required> Zilnic</label>
+          <label class="choice"><input type="radio" name="q5" value="De câteva ori pe săptămână"> De câteva ori pe săptămână</label>
+          <label class="choice"><input type="radio" name="q5" value="Rar"> Rar</label>
+          <label class="choice"><input type="radio" name="q5" value="Niciodată"> Niciodată</label>
+        </fieldset>
+        <div class="field">
+          <label for="suggestion">7. Ce ai vrea să găsești în aplicația FoodQR? (opțional)</label>
+          <textarea id="suggestion" rows="3" maxlength="700" placeholder="Scrie răspunsul tău aici..."></textarea>
+        </div>
+        <button class="primary" id="submitBtn" type="submit">Trimite răspunsurile</button>
+        <p id="status" class="status" role="status"></p>
+        <p class="privacy">Răspunsurile sunt folosite pentru îmbunătățirea aplicației. Nu solicităm numele sau adresa ta de email.</p>
+      </form>
+    </section>
+
+    <section id="successView" class="panel success hidden">
+      <div class="success-icon">✓</div>
+      <h1>Mulțumim!</h1>
+      <p>Răspunsurile tale au fost trimise cu succes.</p>
+      <button class="secondary" id="againBtn">Completează din nou</button>
+    </section>
+
+    <section id="adminLogin" class="panel hidden">
+      <button class="back" id="backBtn">← Înapoi</button>
+      <h1>Acces administrator</h1>
+      <p>Introdu PIN-ul pentru a continua.</p>
+      <form id="pinForm">
+        <input id="pinInput" type="password" inputmode="numeric" maxlength="4" placeholder="PIN" aria-label="PIN administrator" required>
+        <button class="primary" type="submit">Continuă</button>
+        <p id="pinStatus" class="status"></p>
+      </form>
+    </section>
+
+    <section id="statsView" class="panel hidden">
+      <h1>Statistici FoodQR</h1>
+      <p id="statsStatus">Se încarcă statisticile...</p>
+      <div id="statsContent"></div>
+      <button class="secondary" id="closeStats">Închide</button>
+    </section>
+
+    <footer>FoodQR · Chestionar</footer>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
