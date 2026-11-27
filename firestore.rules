@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /foodqr_survey_responses/{responseId} {
+      // Chestionarul poate fi completat fără cont; aplicația folosește autentificare anonimă.
+      allow create: if request.auth != null
+        && request.resource.data.age is string
+        && request.resource.data.q1 is string
+        && request.resource.data.q2 is list
+        && request.resource.data.q3 is string
+        && request.resource.data.q4 is string
+        && request.resource.data.q5 is string
+        && request.resource.data.suggestion is string
+        && request.resource.data.suggestion.size() <= 700;
+      // Citirea, modificarea și ștergerea sunt blocate din browser.
+      // Statisticile trebuie servite printr-un backend securizat pentru administrator.
+      allow read, update, delete: if false;
+    }
+  }
+}
